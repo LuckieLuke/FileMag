@@ -4,15 +4,19 @@
 
 {% block search %}
 <div class="nav">
-    <input placeholder="🔎 search..." class="search-input"/>
+    <input placeholder="🔎 search..." class="search-input" name="search-file"/>
 </div>
 {% endblock %}}
 
 {% block content %}
 <div class="contents">
 
-    {% for i in range(15): %}
-        <div class="file"> file #{{i+1}} </div>
+    {% for dirr in dirs: %}
+        <div class="dirr file"> {{dirr}} </div>
+    {% endfor %}
+
+    {% for file in files: %}
+        <div class="file"> {{file}} </div>
     {% endfor %}
 
 </div>

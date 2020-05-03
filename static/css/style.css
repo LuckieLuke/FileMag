@@ -40,6 +40,7 @@ body {
 .contents {
     padding: 5px 5px 5px 5px;
     height: 100%;
+    font-family: 'Comfortaa', cursive;
 }
 
 .logo-wand {
@@ -91,6 +92,10 @@ body {
     border-color: whitesmoke;
 }
 
+.dirr {
+    font-weight: bold;
+}
+
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
@@ -99,7 +104,7 @@ body {
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     right: 0;
-    background-color: #303030; /* Black*/
+    background-color: #303030; 
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -114,6 +119,8 @@ body {
     display: block;
     transition: 0.3s;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
   
   /* Position and style the close button (top right corner) */
@@ -123,4 +130,8 @@ body {
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+
+.sidenav a:last-child{
+    bottom: 0;
 }
