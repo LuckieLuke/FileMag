@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../static/img/wand2cp.png" type="image/icon type">
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+    </head>
+
+    <body>
+        <div class="header">
+            <div class="logo">
+                <a href="http://placecorgi.com/375/667">
+                    <div class="logo-wand"><img src="../static/img/wand2cp.png" /></div>
+                    <div class="logo-name">FileMag!</div>
+                </a>
+                <div class="files-dots" onclick="openNav()"><img src="../static/img/dots1.png" /></div>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            {% block search %}
+            {% endblock %}
+        </div>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#"><img src="../static/img/plus.png"></a>
+            <a href="#"><img src="../static/img/pencil.png"></a>
+            <a href="#"><img src="../static/img/trash.png"></a>
+        </div>
+          
+        
+        {% block content %}
+        {% endblock %}
+        
+
+        <script type="text/javascript" src="../static/js/fadingSearch.js"></script>
+        <script type="text/javascript" src="../static/js/contentsHeight.js"></script>        
+        <script type="text/javascript" src="../static/js/openSideNav.js"></script>
+    </body>
