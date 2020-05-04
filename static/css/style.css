@@ -47,7 +47,7 @@ body {
 .contents {
     padding: 5px 5px 5px 5px;
     height: 100%;
-    font-family: 'Comfortaa', 'Jost', 'Arial', cursive;
+    font-family: 'Comfortaa', 'Jost', 'Arial';
     font-weight: 400;
 }
 
@@ -61,7 +61,7 @@ h1.logo-name{
     color: #dfe2ff;
     font-size: 24px;
     margin-top: 18px;
-    font-family: 'Comfortaa', 'Jost', cursive;
+    font-family: 'Comfortaa', 'Jost';
     text-shadow: 4px 4px 4px #aaa;
     font-weight: 400;
     text-decoration: none;
@@ -85,7 +85,7 @@ h1.logo-name{
     background-color: #303030;
     padding: 0 5px;
     color: white;
-    font-family: 'Comfortaa', 'Jost', cursive;
+    font-family: 'Comfortaa', 'Jost';
     font-size: 18px;
 }
 
