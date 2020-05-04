@@ -1,4 +1,4 @@
-const setContentsHeight = () => {
+const setContentsSizes = () => {
     const windowHeight = window.innerHeight;
     const navHeight = document.querySelector(".nav").offsetHeight;
     const headerHeight = document.querySelector(".header").offsetHeight;
@@ -16,7 +16,7 @@ const setContentsHeight = () => {
 };
 
 window.addEventListener("resize", () => {
-    setContentsHeight();
+    setContentsSizes();
 })
 
-setContentsHeight();
+setContentsSizes();

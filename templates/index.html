@@ -11,11 +11,14 @@
 {% block content %}
 <div class="contents">
 
-    {% for dirr in dirs: %}
-        <div class="dirr file"> {{dirr}} </div>
+    {% for dirr in dirs %}
+        <div class="dirr file"> 
+            <div class="dir-logo"><img src="../static/img/directory.png" alt="directory logo"/></div>
+            <div class="dir-name">{{dirr}}</div> 
+        </div>
     {% endfor %}
 
-    {% for file in files: %}
+    {% for file in files %}
         <div class="file"> {{file}} </div>
     {% endfor %}
 
