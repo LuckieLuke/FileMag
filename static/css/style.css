@@ -41,7 +41,7 @@ body {
 .contents {
     padding: 5px 5px 5px 5px;
     height: 100%;
-    font-family: 'Jost', cursive;
+    font-family: 'Comfortaa', 'Jost', 'Arial', cursive;
 }
 
 .logo-wand {
@@ -54,7 +54,7 @@ h1.logo-name{
     color: #dfe2ff;
     font-size: 24px;
     margin-top: 18px;
-    font-family: 'Jost', cursive;
+    font-family: 'Comfortaa', 'Jost', cursive;
     font-weight: normal;
     text-decoration: none;
     float: left;
@@ -77,7 +77,7 @@ h1.logo-name{
     background-color: #303030;
     padding: 0 5px;
     color: white;
-    font-family: 'Jost', cursive;
+    font-family: 'Comfortaa', 'Jost', cursive;
     font-size: 18px;
 }
 
