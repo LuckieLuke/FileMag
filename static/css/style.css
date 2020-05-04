@@ -4,8 +4,7 @@
 
 @font-face {
     font-family: 'Comfortaa';
-    src: url(../fonts/Comfortaa/Comfortaa-Regular.ttf) format('truetype'),
-         url(../fonts/Comfortaa/Comfortaa-Bold.ttf) format('truetype');
+    src: url(../fonts/Comfortaa/Comfortaa-Regular.ttf) format('truetype');
 }
 
 body {
@@ -47,7 +46,7 @@ body {
 .contents {
     padding: 5px 5px 5px 5px;
     height: 100%;
-    font-family: 'Comfortaa', 'Jost', 'Arial';
+    font-family: 'Jost', 'Arial';
     font-weight: 400;
 }
 
