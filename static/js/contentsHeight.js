@@ -36,7 +36,7 @@ var isMobile = {
     }
 };
 
-if (isMobile.any()) {
+if (!isMobile.any()) {
     window.addEventListener("resize", () => {
         setContentsSizes();
     })
