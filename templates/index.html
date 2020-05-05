@@ -14,7 +14,9 @@
     {% for dirr in dirs %}
         <div class="dirr file"> 
             <div class="dir-logo"><img src="../static/img/directory.png" alt="directory logo"/></div>
-            <div class="dir-name">{{dirr}}</div> 
+            <a href="{{path}}/{{dirr}}" class="dir-navigating">
+                <div class="dir-name">{{dirr}}</div> 
+            </a>
         </div>
     {% endfor %}
 

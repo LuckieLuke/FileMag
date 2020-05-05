@@ -4,7 +4,7 @@ const setContentsSizes = () => {
     const headerHeight = document.querySelector(".header").offsetHeight;
 
     const newHeight = (windowHeight-navHeight-headerHeight) + "px";
-    const newFileHeight = (windowHeight-navHeight-headerHeight)/10 + "px";
+    const newFileHeight = (windowHeight-navHeight-headerHeight)/9 + "px";
 
     document.querySelector(".contents").style.height = newHeight;    
     

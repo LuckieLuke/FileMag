@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #dfe2ff;
+    background-color: #eff1ff;
     margin-top: 60px;
     margin-left: 0px;
     margin-bottom: 0px;
@@ -88,26 +88,46 @@ h1.logo-name{
     font-size: 18px;
 }
 
+.dirr .file {
+    display: flex;
+    flex-direction: row;
+}
+
 .file {
     display: flex;
     width: 100%;
     min-height: 40px;
     border-top-style: solid;
     border-width: 2px;
-    border-color: whitesmoke;
+    border-color: #b7b7b7;
     align-items: center;
     justify-content: start;
     padding-left: 5px;
+    font-size: 22px;
 }
 
 .file:last-child {
     border-bottom-style: solid;
     border-width: 2px;
-    border-color: whitesmoke;
+    border-color: #b7b7b7;
 }
 
 .dirr {
     font-weight: 700;
+}
+
+.dir-navigating {
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
 }
 
 /* The side navigation menu */
