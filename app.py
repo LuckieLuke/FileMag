@@ -4,6 +4,7 @@ import re
 
 app = Flask(__name__)
 
+
 @app.route("/")
 @app.route("/home")
 def home(path=''):
@@ -11,6 +12,9 @@ def home(path=''):
 
     files = next(os.walk(filepath))[2]
     dirs = next(os.walk(filepath))[1]
+
+    files.sort()
+    dirs.sort()
 
     return render_template("index.html", files=files, dirs=dirs, path=path)
 
