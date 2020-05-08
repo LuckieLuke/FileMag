@@ -15,12 +15,17 @@
             "sizes": "180x180"
         },
         {
-            "src": "/static/img/wand2.png",
+            "src": "/static/img/wand192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/static/img/wand512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
     ],
-    "start_url": "http://filemag.herokuapp.com/",
+    "start_url": "/",
     "scope": "/",
     "display": "standalone",
     "orientation": "any"

@@ -1,5 +1,5 @@
 
-const cacheName = 'v1';
+const cacheName = 'offline';
 
 const files2Cache = [
     './css/style.css',
@@ -17,44 +17,10 @@ const files2Cache = [
     './img/wand2cp.png',
     './offline.html',
     './offline-base.html',
-    '/'
+    './templates/base.html',
+    './templates/index.html'
 ];
-/*
-self.addEventListener('install', (evt) => {
-    console.log('[ServiceWorker] Install');
-    evt.waitUntil(
-        caches.open(cacheName).then((cache) => {
-            console.log('[ServiceWorker] Pre-caching offline page');
-            return cache.addAll(files2Cache);
-        })
-    );
-  
-    self.skipWaiting();
-});
 
-self.addEventListener('activate', (evt) => {
-    console.log('[ServiceWorker] Activate');
-    evt.waitUntil(
-        caches.keys().then((keyList) => {
-            return Promise.all(keyList.map((key) => {
-                if (key !== cacheName) {
-                    console.log('[ServiceWorker] Removing old cache', key);
-                    return caches.delete(key);
-                }
-            }));
-        })
-    );
-    self.clients.claim();
-});
-
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches.match(event.request).then(function(response) {
-            return response || fetch(event.request);
-        })
-    );
-});
-*/
 self.addEventListener("install", function(event) {
     event.waitUntil(preLoad());
   });

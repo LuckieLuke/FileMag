@@ -54,18 +54,21 @@
         {% endblock %}
         
 
+        <button href="#" id="installButton" hidden>Install!</button>
+
         <script>
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('/static/service-worker.js').then(function(registration) {
-                console.log('Service worker registered successfully');
-              }).catch(function(err) {
-                console.log('Service worker registration failed: ', err);
-              });
+                    console.log('Service worker registered successfully', registration.scope);
+                }).catch(function(err) {
+                    console.log('Service worker registration failed: ', err);
+                });
             };
-          </script>
+        </script>
     </body>
     <script type="text/javascript" src="/static/js/fadingSearch.js"></script>
     <script type="text/javascript" src="/static/js/contentsHeight.js"></script>        
     <script type="text/javascript" src="/static/js/openSideNav.js"></script>
     <script type="text/javascript" src="/static/js/corgi.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/install.js') }}"></script>
 </html>
