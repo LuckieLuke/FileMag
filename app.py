@@ -17,12 +17,18 @@ def home(path=''):
     files.sort()
     dirs.sort()
 
+    sw()
+
     return render_template("index.html", files=files, dirs=dirs, path=path)
 
-@app.route("/<path:req_path>")
+@app.route("/dir/<string:req_path>")
 def listDir(req_path):
 
     return home(req_path)
+
+@app.route('/service-worker.js')
+def sw():
+    return app.send_static_file('service-worker.js')
 
 if __name__ == "__main__":
     app.run(debug=True)
