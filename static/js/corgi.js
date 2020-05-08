@@ -9,5 +9,3 @@ const corgiClick = (() => {
 
     window.location.href = link;
 });
-
-searchInput.addEventListener("onClick", f_unfade, false);
