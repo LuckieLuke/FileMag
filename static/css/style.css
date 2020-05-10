@@ -114,6 +114,11 @@ h1.logo-name{
     opacity: 80%;
 }
 
+.file-delete>a {
+    display: flex;
+    align-content: center;
+}
+
 .dirr {
     font-weight: 700;
 }
