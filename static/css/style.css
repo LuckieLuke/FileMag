@@ -111,6 +111,7 @@ h1.logo-name{
     margin-right: 2%;
     display: flex;
     align-content: center;
+    opacity: 80%;
 }
 
 .dirr {

@@ -21,19 +21,24 @@
             <a href="/dir/{{path}}/{{dirr}}" class="dir-navigating">
                 <div class="dir-name">{{dirr}}</div> 
             </a>
+            <div class="file-delete">
+                <a href="/delete/dir/{{path}}/{{dirr}}">
+                    <img src="/static/img/trash.png" alt="delete directory" />
+                </a>
+            </div>
         </div>
     {% endfor %}
 
     {% for file in files %}
-    <div class="file"> 
-        <div class="dir-logo"><img src="/static/img/file.png" alt="file logo"/></div>
-        <div class="dir-name">{{file}}</div> 
-        <div class="file-delete">
-            <a href="/delete/{{path}}/{{file}}">
-                <img src="/static/img/trash.png" alt=" delete file" />
-            </a>
+        <div class="file"> 
+            <div class="dir-logo"><img src="/static/img/file.png" alt="file logo"/></div>
+            <div class="dir-name">{{file}}</div> 
+            <div class="file-delete">
+                <a href="/delete/file/{{path}}/{{file}}">
+                    <img src="/static/img/trash.png" alt="delete file" />
+                </a>
+            </div>
         </div>
-    </div>
     {% endfor %}
 
 </div>

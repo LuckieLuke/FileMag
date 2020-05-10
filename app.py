@@ -9,8 +9,6 @@ app = Flask(__name__, template_folder='static/templates')
 def home(path=''):
     filepath = './FILES/' + path
 
-    print('PATH', path)
-
     files = next(os.walk(filepath))[2]
     dirs = next(os.walk(filepath))[1]
 
@@ -26,12 +24,21 @@ def listDir(req_path):
 
     return home(req_path)
 
-@app.route("/delete/<path:file_path>")
-def remove(file_path):
+@app.route("/delete/file/<path:file_path>")
+def removefile(file_path):
 
     filename = file_path.split("/")[-1]
+    file_path = './FILES/' + file_path
 
-    return render_template("delete.html", name=filename)
+    return render_template("delete.html", name=filename, type="File")
+
+@app.route("/delete/dir/<path:file_path>")
+def removedir(file_path):
+
+    filename = file_path.split("/")[-1]
+    file_path = './FILES/' + file_path
+
+    return render_template("delete.html", name=filename, type="Directory")
 
 @app.route('/service-worker.js')
 def sw():

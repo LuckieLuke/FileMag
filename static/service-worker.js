@@ -15,10 +15,9 @@ const files2Cache = [
     './img/plus.png',
     './img/trash.png',
     './img/wand2cp.png',
-    './offline.html',
-    './offline-base.html',
     './templates/base.html',
-    './templates/index.html'
+    './templates/index.html',
+    './templates/delete.html'
 ];
 
 self.addEventListener("install", function(event) {

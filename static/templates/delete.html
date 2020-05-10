@@ -3,13 +3,29 @@
 <link rel="stylesheet" type="text/css" href="/static/css/delete.css">
 {% endblock %}
 
-{% block title %} FileMag! | Delete file {% endblock %}
+{% block title %} FileMag! | Delete {{type.lower()}} {% endblock %}
 
 
 {% block content %}
 <div class="contents">
-    <h1>File to delete:</h1>
+    <img src="/static/img/sadface.png" alt="sad face" class="sadface"/>
+    <h1>{{type}} to delete:</h1>
     <h2>{{name}}</h2>
+
+    <br/>
+    Are you sure?
+    <div class="decision">
+        <div class="delete-confirm">
+            <a href="#">
+                <img src="/static/img/like.png" alt="confirm" class="sadface"/>
+            </a>
+        </div>
+        <div class="delete-cancel">
+            <a href="/">
+                <img src="/static/img/dislike.png" alt="cancel" class="sadface"/>
+            </a>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
