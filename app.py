@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, send_file
+from flask import Flask, render_template, abort, send_file, redirect, url_for
 import os
 
 app = Flask(__name__, template_folder='static/templates')
@@ -25,20 +25,27 @@ def listDir(req_path):
     return home(req_path)
 
 @app.route("/delete/file/<path:file_path>")
-def removefile(file_path):
+def dec_removefile(file_path):
 
     filename = file_path.split("/")[-1]
-    file_path = './FILES/' + file_path
+    #file_path = './FILES/' + file_path
 
-    return render_template("delete.html", name=filename, type="File")
+    return render_template("delete.html", name=filename, type="File", path=file_path)
 
 @app.route("/delete/dir/<path:file_path>")
-def removedir(file_path):
+def dec_removedir(file_path):
 
     filename = file_path.split("/")[-1]
     file_path = './FILES/' + file_path
 
     return render_template("delete.html", name=filename, type="Directory")
+
+@app.route("/delconf/file/<path:file_path>")
+def removefile(file_path):
+    file_path = './FILES/' + file_path
+    os.remove(file_path)
+
+    return redirect(url_for('home'))
 
 @app.route('/service-worker.js')
 def sw():
