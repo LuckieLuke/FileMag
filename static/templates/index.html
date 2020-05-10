@@ -8,21 +8,38 @@
 </div>
 {% endblock %}}
 
+{% block sidenav %}
+<a href="#"><img src="/static/img/plus.png" alt="add file"></a>
+{% endblock %}
+
 {% block content %}
 <div class="contents">
 
     {% for dirr in dirs %}
         <div class="dirr file"> 
             <div class="dir-logo"><img src="/static/img/directory.png" alt="directory logo"/></div>
-            <a href="dir/{{path}}/{{dirr}}" class="dir-navigating">
+            <a href="/dir/{{path}}/{{dirr}}" class="dir-navigating">
                 <div class="dir-name">{{dirr}}</div> 
             </a>
         </div>
     {% endfor %}
 
     {% for file in files %}
-        <div class="file"> {{file}} </div>
+    <div class="file"> 
+        <div class="dir-logo"><img src="/static/img/file.png" alt="file logo"/></div>
+        <div class="dir-name">{{file}}</div> 
+        <div class="file-delete">
+            <a href="/delete/{{path}}/{{file}}">
+                <img src="/static/img/trash.png" alt=" delete file" />
+            </a>
+        </div>
+    </div>
     {% endfor %}
 
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/static/js/fadingSearch.js"></script>
+<script type="text/javascript" src="/static/js/contentsHeight.js"></script>        
 {% endblock %}

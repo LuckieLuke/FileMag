@@ -21,10 +21,17 @@ def home(path=''):
 
     return render_template("index.html", files=files, dirs=dirs, path=path)
 
-@app.route("/dir/<string:req_path>")
+@app.route("/dir/<path:req_path>")
 def listDir(req_path):
 
     return home(req_path)
+
+@app.route("/delete/<path:file_path>")
+def remove(file_path):
+
+    filename = file_path.split("/")[-1]
+
+    return render_template("delete.html", name=filename)
 
 @app.route('/service-worker.js')
 def sw():

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="/static/css/delete.css">
+{% endblock %}
+
+{% block title %} FileMag! | Delete file {% endblock %}
+
+
+{% block content %}
+<div class="contents">
+    <h1>File to delete:</h1>
+    <h2>{{name}}</h2>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+ 
+<script>
+    const setContentsSizes = () => {
+    const windowHeight = window.innerHeight;
+    const headerHeight = document.querySelector(".header").offsetHeight;
+
+    const newHeight = (windowHeight-headerHeight) + "px";
+
+    document.querySelector(".contents").style.height = newHeight;    
+
+};
+
+window.addEventListener("resize", () => {
+    setContentsSizes();
+});
+
+setContentsSizes();
+</script>     
+{% endblock %}
