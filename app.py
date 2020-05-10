@@ -19,7 +19,7 @@ def home(path=''):
 
     return render_template("index.html", files=files, dirs=dirs, path=path)
 
-@app.route("/dir/<path:req_path>")
+@app.route("/dir/<path:req_path>", methods=['GET'])
 def listDir(req_path):
 
     return home(req_path)
