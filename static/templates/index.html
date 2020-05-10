@@ -9,7 +9,7 @@
 {% endblock %}}
 
 {% block sidenav %}
-<a href="#"><img src="/static/img/plus.png" alt="add file"></a>
+<a href="#"><img src="/static/img/plus.png" alt="add file" height="60" width="60"></a>
 {% endblock %}
 
 {% block content %}
@@ -17,13 +17,13 @@
 
     {% for dirr in dirs %}
         <div class="dirr file"> 
-            <div class="dir-logo"><img src="/static/img/directory.png" alt="directory logo"/></div>
+            <div class="dir-logo"><img src="/static/img/directory.png" alt="directory logo" height="40" width="40"/></div>
             <a href="/dir/{{path}}/{{dirr}}" class="dir-navigating">
                 <div class="dir-name">{{dirr}}</div> 
             </a>
             <div class="file-delete">
                 <a href="/delete/dir/{{path}}/{{dirr}}">
-                    <img src="/static/img/trash.png" alt="delete directory" />
+                    <img src="/static/img/trash.png" alt="delete directory" height="40" width="40"/>
                 </a>
             </div>
         </div>
@@ -31,11 +31,11 @@
 
     {% for file in files %}
         <div class="file"> 
-            <div class="file-logo"><img src="/static/img/file.png" alt="file logo"/></div>
+            <div class="file-logo"><img src="/static/img/file.png" alt="file logo" height="40" width="40"/></div>
             <div class="file-name">{{file}}</div> 
             <div class="file-delete">
                 <a href="/delete/file/{{path}}/{{file}}">
-                    <img src="/static/img/trash.png" alt="delete file" />
+                    <img src="/static/img/trash.png" alt="delete file" height="40" width="40"/>
                 </a>
             </div>
         </div>

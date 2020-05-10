@@ -8,7 +8,7 @@
 
 {% block content %}
 <div class="contents">
-    <img src="/static/img/sadface.png" alt="sad face" class="sadface"/>
+    <img src="/static/img/sadface.png" alt="sad face" class="sadface" height="175" width="175" />
     <h1>{{type}} to delete:</h1>
     <h2>{{name}}</h2>
 
@@ -17,12 +17,12 @@
     <div class="decision">
         <div class="delete-confirm">
             <a href="/delconf/{{type.lower()}}/{{path}}">
-                <img src="/static/img/like.png" alt="confirm" class="sadface"/>
+                <img src="/static/img/like.png" alt="confirm" height="70" width="70" />
             </a>
         </div>
         <div class="delete-cancel">
             <a href="/">
-                <img src="/static/img/dislike.png" alt="cancel" class="sadface"/>
+                <img src="/static/img/dislike.png" alt="cancel" height="70" width="70" />
             </a>
         </div>
     </div>
