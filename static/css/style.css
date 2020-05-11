@@ -177,6 +177,10 @@ a:visited {
     bottom: 0;
 }
 
+.corgi {
+    cursor: pointer;
+}
+
 .dirr .file {
     display: flex;
     flex-direction: row;
