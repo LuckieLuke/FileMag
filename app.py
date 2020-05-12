@@ -7,7 +7,7 @@ app = Flask(__name__, template_folder='static/templates')
 @app.route("/")
 @app.route("/home")
 def home(path=''):
-    filepath = './FILES/' + path
+    filepath = './static/FILES/' + path
 
     files = next(os.walk(filepath))[2]
     dirs = next(os.walk(filepath))[1]
@@ -36,13 +36,13 @@ def dec_removefile(file_path):
 def dec_removedir(file_path):
 
     filename = file_path.split("/")[-1]
-    file_path = './FILES/' + file_path
+    file_path = './static/FILES/' + file_path
 
     return render_template("delete.html", name=filename, type="Directory")
 
 @app.route("/delconf/file/<path:file_path>")
 def removefile(file_path):
-    file_path = './FILES/' + file_path
+    file_path = './static/FILES/' + file_path
     os.remove(file_path)
 
     return redirect(url_for('home'))

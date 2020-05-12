@@ -62,5 +62,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     {
       "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
       "url": '/static/js/contentsHeight.js'
+    },
+    {
+      "revision": "FILES",
+      "url": '/static/FILES/'
     }
   ]);

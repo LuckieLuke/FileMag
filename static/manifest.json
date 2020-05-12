@@ -25,8 +25,8 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": "/",
-    "scope": "/",
+    "start_url": "/static/templates/index.html",
+    "scope": "/static/templates/index.html",
     "display": "standalone",
     "orientation": "any"
   }
