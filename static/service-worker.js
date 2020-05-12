@@ -20,6 +20,13 @@ const files2Cache = [
     './templates/delete.html'
 ];
 
+workbox.precaching.precacheAndRoute([
+  {
+    "url": "/",
+    "revision": "1"
+  }
+]);
+
 self.addEventListener("install", function(event) {
     event.waitUntil(preLoad());
   });
