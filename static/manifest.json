@@ -21,7 +21,7 @@
         }
     ],
     "start_url": "https://filemag.herokuapp.com/",
-    "scope": "/",
+    "scope": "https://filemag.herokuapp.com/",
     "display": "standalone",
     "orientation": "any"
   }
