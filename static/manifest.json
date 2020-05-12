@@ -10,11 +10,6 @@
             "sizes": "40x40"
         },
         {
-            "src": "/static/img/wand2icon.png",
-            "type": "image/png",
-            "sizes": "180x180"
-        },
-        {
             "src": "/static/img/wand192.png",
             "type": "image/png",
             "sizes": "192x192"
@@ -25,8 +20,8 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": "/static/templates/index.html",
-    "scope": "/static/templates/index.html",
+    "start_url": "https://filemag.herokuapp.com/",
+    "scope": "/",
     "display": "standalone",
     "orientation": "any"
   }
