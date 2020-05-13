@@ -55,23 +55,6 @@
 {% block scripts %}
 <script type="text/javascript" src="/static/js/fileDisable.js"></script>
 
-<script>
-    const setContentsSizes = () => {
-    const windowHeight = window.innerHeight;
-    const headerHeight = document.querySelector(".header").offsetHeight;
-
-    const newHeight = (windowHeight-headerHeight) + "px";
-
-    document.querySelector(".contentss").style.height = newHeight;    
-
-};
-
-window.addEventListener("resize", () => {
-    setContentsSizes();
-});
-
-setContentsSizes();
-
 
 </script>     
 {% endblock %}
