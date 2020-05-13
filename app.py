@@ -1,5 +1,6 @@
-from flask import Flask, render_template, abort, send_file, redirect, url_for
+from flask import Flask, render_template, abort, send_file, redirect, url_for, request
 import os
+import shutil
 
 app = Flask(__name__, template_folder='static/templates')
 
@@ -21,38 +22,53 @@ def home(path=''):
 
 @app.route("/dir/<path:req_path>", methods=['GET'])
 def listDir(req_path):
-
     return home(req_path)
 
-@app.route("/delete/file/<path:file_path>")
-def dec_removefile(file_path):
+@app.route("/file/<path:file_path>", methods=['GET'])
+def showFile(file_path):
+    path = './static/FILES/' + file_path
+    return send_file(path)
+
+@app.route("/delete/<ftype>/<path:file_path>", methods=['GET'])
+def dec_removefile(ftype, file_path):
 
     filename = file_path.split("/")[-1]
-    #file_path = './FILES/' + file_path
+    if ftype == "file":
+        remtype = "File"
+    else:
+        remtype = "Directory"
 
-    return render_template("delete.html", name=filename, type="File", path=file_path)
+    return render_template("delete.html", name=filename, type=remtype, path=file_path)
 
-@app.route("/delete/dir/<path:file_path>")
-def dec_removedir(file_path):
+@app.route("/delconf/<ftype>/<path:fpath>", methods=['GET'])
+def removefile(ftype, fpath):
+    path = './static/FILES/' + fpath
 
-    filename = file_path.split("/")[-1]
-    file_path = './static/FILES/' + file_path
+    if ftype == "file":
+        os.remove(path)
+    else:
+        shutil.rmtree(path)
 
-    return render_template("delete.html", name=filename, type="Directory")
+    return redirect("/dir/FILES")
 
-@app.route("/delconf/file/<path:file_path>")
-def removefile(file_path):
-    file_path = './static/FILES/' + file_path
-    os.remove(file_path)
 
-    return redirect(url_for('home'))
+@app.route("/add/<path:file_path>", methods=['GET'])
+def add(file_path):
+    return render_template("add.html")
 
-@app.route('/service-worker.js')
+@app.route("/addconf/<path:fpath>", methods=['GET', 'POST'])
+def addfile(fpath):
+    if request.method == "POST":
+        #path = './static/FILES/' + fpath
+        ftype = request.form
+        print(ftype)
+    
+    return redirect("/dir/FILES")
+
+
+@app.route('/service-worker.js', methods=['GET'])
 def sw():
     return app.send_static_file('service-worker.js')
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-

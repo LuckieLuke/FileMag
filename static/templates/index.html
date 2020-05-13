@@ -4,12 +4,14 @@
 
 {% block search %}
 <div class="nav">
-    <input placeholder="🔎 search..." class="search-input" name="search-file"/>
+    <input placeholder="🔎 search..." class="search-input" name="search-file" onchange="filterContent()"/>
 </div>
 {% endblock %}}
 
 {% block sidenav %}
-<a href="#"><img src="/static/img/plus.png" alt="add file" height="60" width="60"></a>
+{% if path %}
+    <a href="/add/{{path}}"><img src="/static/img/plus.png" alt="add file" height="60" width="60"></a>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -21,18 +23,20 @@
             <a href="/dir/{{path}}/{{dirr}}" class="dir-navigating">
                 <div class="dir-name">{{dirr}}</div> 
             </a>
+            {% if path %}
             <div class="file-delete">
                 <a href="/delete/dir/{{path}}/{{dirr}}">
                     <img src="/static/img/trash.png" alt="delete directory" height="40" width="40"/>
                 </a>
             </div>
+            {% endif %}
         </div>
     {% endfor %}
 
     {% for file in files %}
         <div class="file"> 
             <div class="file-logo"><img src="/static/img/file.png" alt="file logo" height="40" width="40" style="opacity: 0.8;"/></div>
-            <div class="file-name">{{file}}</div> 
+            <div class="file-name"><a href="/file/{{path}}/{{file}}">{{file}} {{filter}}</a></div> 
             <div class="file-delete">
                 <a href="/delete/file/{{path}}/{{file}}">
                     <img src="/static/img/trash.png" alt="delete file" height="40" width="40"/>
@@ -40,11 +44,18 @@
             </div>
         </div>
     {% endfor %}
-
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script type="text/javascript" src="/static/js/fadingSearch.js"></script>
-<script type="text/javascript" src="/static/js/contentsHeight.js"></script>        
+<script type="text/javascript" src="/static/js/contentsHeight.js"></script>
+
+<script>
+    function filterContent() {
+        var filter = "" + document.querySelector(".search-input").value;
+        location.reload();
+        console.log(filter);
+    }
+</script>
 {% endblock %}

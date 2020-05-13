@@ -5,23 +5,22 @@
 
 {% block title %} FileMag! | Delete {{type.lower()}} {% endblock %}
 
-
 {% block content %}
 <div class="contents">
-    <img src="/static/img/sadface.png" alt="sad face" class="sadface" height="175" width="175" />
+    <img src="/static/img/sadface.png" alt="sad face" class="face" height="175" width="175" />
     <h1>{{type}} to delete:</h1>
     <h2>{{name}}</h2>
 
     <br/>
     <p class="question">Are you sure?</p>
     <div class="decision">
-        <div class="delete-confirm">
+        <div class="hand">
             <a href="/delconf/{{type.lower()}}/{{path}}">
                 <img src="/static/img/like.png" alt="confirm" height="70" width="70" />
             </a>
         </div>
-        <div class="delete-cancel">
-            <a href="/">
+        <div class="hand">
+            <a href="/dir/FILES">
                 <img src="/static/img/dislike.png" alt="cancel" height="70" width="70" />
             </a>
         </div>

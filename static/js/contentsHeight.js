@@ -6,7 +6,11 @@ const setContentsSizes = () => {
     const newHeight = (windowHeight-navHeight-headerHeight) + "px";
     const newFileHeight = (windowHeight-navHeight-headerHeight)/9 + "px";
 
-    document.querySelector(".contents").style.height = newHeight;    
+    if (document.querySelector(".contents")) {
+        document.querySelector(".contents").style.height = newHeight;
+    } else {
+        document.querySelector(".contentss").style.height = newHeight;
+    }
     
     let files = document.querySelectorAll(".file");
 

@@ -27,12 +27,14 @@
     </head>
 
     <body>
+        <button href="#" id="installButton" hidden>Install!</button>
+
         <noscript>
             <strong>We're sorry but this website doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
         </noscript>
         <div class="header">
             <div class="logo">
-                <a href="/">
+                <a href="/dir/FILES">
                     <div class="logo-wand"><img src="/static/img/wand2.png" alt="logo" height="40" width="40"/></div>
                     <h1 class="logo-name">FileMag!</h1>
                 </a>
@@ -57,9 +59,6 @@
         {% block content %}
         {% endblock %}
         
-
-        <button href="#" id="installButton" hidden>Install!</button>
-
         <script>
             if ('serviceWorker' in navigator) {
                 navigator.serviceWorker.register('/static/service-worker.js').then(function(registration) {

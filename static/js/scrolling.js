@@ -1,7 +1,7 @@
 window.onscroll = function() {scrollButStick()};
 
-var header = document.querySelector(".header");
-var sticky = header.offsetTop;
+let header = document.querySelector(".header");
+let sticky = header.offsetTop;
 
 function scrollButStick() {
     if(window.pageYOffset > sticky) {

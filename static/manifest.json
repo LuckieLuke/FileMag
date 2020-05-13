@@ -20,8 +20,8 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": "https://filemag.herokuapp.com/",
-    "scope": "https://filemag.herokuapp.com/",
+    "start_url": "/static/templates/base.html",
+    "scope": "/static/",
     "display": "standalone",
     "orientation": "any"
   }
