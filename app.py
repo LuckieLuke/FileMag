@@ -56,12 +56,11 @@ def removefile(ftype, fpath):
 def add(file_path):
     return render_template("add.html")
 
-@app.route("/addconf/<path:fpath>", methods=['GET', 'POST'])
-def addfile(fpath):
-    if request.method == "POST":
-        #path = './static/FILES/' + fpath
-        ftype = request.form
-        print(ftype)
+@app.route("/addconf/<ftype>/<path:fpath>", methods=['GET', 'POST'])
+def addfile(ftype, fpath):
+    path = './static/FILES/' + fpath
+    if ftype == "dir":
+        os.mkdir(path)
     
     return redirect("/dir/FILES")
 

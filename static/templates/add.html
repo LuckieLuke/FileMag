@@ -8,7 +8,7 @@
 
 {% block content %}
 <div class="contentss">
-    <img src="/static/img/happy.png" alt="happy face" class="face" height="175" width="175" />
+    <img src="/static/img/happy.png" alt="happy face" class="face" height="150" width="150" />
     <form>
         <legend>What do you want to add?</legend>
         <br/>
@@ -37,7 +37,7 @@
 
     <div class="decision">
         <div class="hand">
-            <a href="/dir/FILES">
+            <a onclick="addstuff()" style="cursor: pointer;">
                 <img src="/static/img/like.png" alt="confirm" height="70" width="70" />
             </a>
         </div>
@@ -54,7 +54,7 @@
 
 {% block scripts %}
 <script type="text/javascript" src="/static/js/fileDisable.js"></script>
-
+<script type="text/javascript" src="/static/js/addStuff.js"></script>
 
 </script>     
 {% endblock %}
