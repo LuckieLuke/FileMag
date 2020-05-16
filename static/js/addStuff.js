@@ -27,7 +27,6 @@ function addstuff() {
             window.location.href = path;
         }
     } else {
-        let name = document.querySelector(".addfile").files;
-        console.log(name);
+        window.location.href = "/dir/FILES"
     }
 }

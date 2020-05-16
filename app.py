@@ -1,4 +1,5 @@
-from flask import Flask, render_template, abort, send_file, redirect, url_for, request
+from flask import Flask, render_template, abort, send_file, redirect, url_for, request, flash
+from werkzeug.utils import secure_filename
 import os
 import shutil
 
@@ -54,14 +55,30 @@ def removefile(ftype, fpath):
 
 @app.route("/add/<path:file_path>", methods=['GET'])
 def add(file_path):
-    return render_template("add.html")
+    print(file_path)
+    return render_template("add.html", path=file_path)
 
 @app.route("/addconf/<ftype>/<path:fpath>", methods=['GET', 'POST'])
 def addfile(ftype, fpath):
     path = './static/FILES/' + fpath
+
     if ftype == "dir":
         os.mkdir(path)
     
+    return redirect("/dir/FILES")
+
+@app.route("/upload/<path:fpath>", methods=['POST', 'GET'])
+def upload(fpath):
+    if request.method == 'POST':
+        path = './static/FILES/' + fpath
+        app.config['UPLOAD_FOLDER'] = path
+        f = request.files['ffile']
+
+        if f.filename == '':
+            flash('No selected file')
+        else:
+            filename = secure_filename(f.filename)
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     return redirect("/dir/FILES")
 
 

@@ -9,44 +9,39 @@
 {% block content %}
 <div class="contentss">
     <img src="/static/img/happy.png" alt="happy face" class="face" height="150" width="150" />
-    <form>
+    <form action="/upload/{{path}}" method="POST" enctype = "multipart/form-data">
         <legend>What do you want to add?</legend>
         <br/>
-            <div>
-                <input type="radio" id="check-file"
-                name="ftype" value="file" onclick="radioChange(this)" checked>
-                <label for="check-file">File</label>
+        <div>
+            <input type="radio" id="check-file"
+            name="ftype" value="file" onclick="radioChange(this)" checked>
+            <label for="check-file">File</label>
       
-                <input type="radio" id="check-directory"
+            <input type="radio" id="check-directory"
                 name="ftype" value="directory" onclick="radioChange(this)">
-                <label for="check-directory">Directory</label>
-            </div>
+            <label for="check-directory">Directory</label>
+        </div>
+
+        <label for="ffile" class="addfile">
+            <span class="adding"> Add file </span>
+            <input type="file" name="ffile" id="ffile" style="display: none;">
+        </label>
+
+        <label>
+            <input type="text" class="adddir" placeholder="Name of directory to create" name="adddir">
+        </label>
+
+        <br/>
+        <p class="question">Are you sure?</p>
+
+        <label for="submit" class="addfilebut">
+            <img src="/static/img/like.png" alt="confirm" height="70" width="70" />
+            <input type="submit" id="submit" name="submit" style="display: none;">
+        </label>
+        <div class="hand">
+            <img src="/static/img/like.png" alt="confirm" height="70" width="70" onclick="addstuff()" />
+        </div>
     </form>
-
-    <label for="addfile" class="addfile">
-        <span class="adding"> Add file </span>
-        <input type="file" id="addfile" style="display: none;">
-    </label>
-
-    <label>
-        <input type="text" class="adddir" placeholder="Name of directory to create" name="adddir">
-    </label>
-
-    <br/>
-    <p class="question">Are you sure?</p>
-
-    <div class="decision">
-        <div class="hand">
-            <a onclick="addstuff()" style="cursor: pointer;">
-                <img src="/static/img/like.png" alt="confirm" height="70" width="70" />
-            </a>
-        </div>
-        <div class="hand">
-            <a href="/dir/FILES">
-                <img src="/static/img/dislike.png" alt="cancel" height="70" width="70" />
-            </a>
-        </div>
-    </div>
     
 </div>
 {% endblock %}
