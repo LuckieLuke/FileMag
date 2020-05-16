@@ -8,7 +8,7 @@ app = Flask(__name__, template_folder='static/templates')
 
 @app.route("/")
 @app.route("/home")
-def home(path=''):
+def home(path='/FILES'):
     filepath = './static/FILES/' + path
 
     files = next(os.walk(filepath))[2]
