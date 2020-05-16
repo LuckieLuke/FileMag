@@ -14,6 +14,7 @@ h2 {
     font-size: 26px;
     margin: 0;
     padding-bottom: 5%;
+    text-align: center;
 }
 
 .contents {
@@ -112,6 +113,13 @@ legend {
     color: #d0d0d0;
     border-radius: 10px;
     transition: 0.3s;
+}
+
+.contents.delete {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Comfortaa';
 }
 
 .contentss {

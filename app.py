@@ -67,6 +67,15 @@ def addfile(ftype, fpath):
     
     return redirect("/dir/FILES")
 
+def correctname(filename=""):
+    checkName = filename.rsplit('.', 1)
+
+    if len(checkName[0]) > 10:
+        checkName[0] = checkName[0][:11]
+
+    checkName = '.'.join(checkName)
+    return checkName
+
 @app.route("/upload/<path:fpath>", methods=['POST', 'GET'])
 def upload(fpath):
     if request.method == 'POST':
@@ -78,7 +87,10 @@ def upload(fpath):
             flash('No selected file')
         else:
             filename = secure_filename(f.filename)
-            f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+            name = correctname(filename)
+
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], name))
     return redirect("/dir/FILES")
 
 
