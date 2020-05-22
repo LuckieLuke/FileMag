@@ -8,11 +8,24 @@ app = Flask(__name__, template_folder='static/templates')
 
 @app.route("/")
 @app.route("/home")
-def home(path='/FILES'):
+def home(path='/FILES', filters=""):
     filepath = './static/FILES/' + path
 
     files = next(os.walk(filepath))[2]
     dirs = next(os.walk(filepath))[1]
+
+    files2 = []
+    dirs2 = []
+    if filters != "":
+        for f in files:
+            if filters in f:
+                files2.append(f)
+        for d in dirs:
+            if filters in d:
+                dirs2.append(d)
+
+        files = files2
+        dirs = dirs2
 
     files.sort()
     dirs.sort()
@@ -50,12 +63,14 @@ def removefile(ftype, fpath):
     else:
         shutil.rmtree(path)
 
-    return redirect("/dir/FILES")
+    path = fpath.split("/")[:-1]
+    path = "/dir/" + "/".join(path)
+
+    return redirect(path)
 
 
 @app.route("/add/<path:file_path>", methods=['GET'])
 def add(file_path):
-    print(file_path)
     return render_template("add.html", path=file_path)
 
 @app.route("/addconf/<ftype>/<path:fpath>", methods=['GET', 'POST'])
@@ -63,9 +78,15 @@ def addfile(ftype, fpath):
     path = './static/FILES/' + fpath
 
     if ftype == "dir":
-        os.mkdir(path)
-    
-    return redirect("/dir/FILES")
+        try:
+            os.mkdir(path)
+        except:
+            pass
+
+    path = fpath.split("/")[:-1]
+    path = "/dir/" + "/".join(path)
+
+    return redirect(path)
 
 def correctname(filename=""):
     checkName = filename.rsplit('.', 1)
@@ -91,8 +112,15 @@ def upload(fpath):
             name = correctname(filename)
 
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], name))
-    return redirect("/dir/FILES")
+    
+    path = fpath.split("/")
+    path = "/dir/" + "/".join(path)
 
+    return redirect(path)
+
+@app.route("/filter/<filters>/<path:fpath>")
+def filter(filters, fpath):
+    return home(fpath, filters)
 
 @app.route('/service-worker.js', methods=['GET'])
 def sw():

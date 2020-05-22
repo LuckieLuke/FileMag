@@ -50,12 +50,5 @@
 {% block scripts %}
 <script type="text/javascript" src="/static/js/fadingSearch.js"></script>
 <script type="text/javascript" src="/static/js/contentsHeight.js"></script>
-
-<script>
-    function filterContent() {
-        var filter = "" + document.querySelector(".search-input").value;
-        location.reload();
-        console.log(filter);
-    }
-</script>
+<script type="text/javascript" src="/static/js/search.js"></script>
 {% endblock %}
